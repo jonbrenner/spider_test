@@ -306,7 +306,7 @@ module Caboose::SpiderIntegrator
     dest.gsub!(/([?]\d+)$/, '') # fix asset caching
     unless dest =~ %r{^(http://|mailto:|#|&#)} 
       dest = dest.split('#')[0] if dest.index("#") # don't want page anchors
-      @links_to_visit << Caboose::SpiderIntegrator::Link.new( dest, source ) if dest.any? # could be empty, make sure there's no empty links queueing
+      @links_to_visit << Caboose::SpiderIntegrator::Link.new( dest, source ) if dest.lines.any? # could be empty, make sure there's no empty links queueing
     end
   end
 
