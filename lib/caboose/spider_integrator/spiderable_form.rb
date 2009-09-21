@@ -73,9 +73,9 @@ module Caboose::SpiderIntegrator
       value = mutate ? nil : input['value'] 
 
       return value || case input['name']
-        when /amount/: rand(10000) - 5000
-        when /_id$/:   rand(500)
-        when /uploaded_data/: # attachment_fu
+        when /amount/ then rand(10000) - 5000
+        when /_id$/ then   rand(500)
+        when /uploaded_data/ # attachment_fu
           nil
         when nil
           # wtf!
